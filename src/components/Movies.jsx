@@ -14,7 +14,7 @@ const Movies = ({ gerneId, search }) => {
           gerneId ? item?.genre_ids?.includes(gerneId) : item
         )
         ?.filter((item) =>
-          search.trim().length > 0
+          search?.trim().length > 0
             ? search
               ? item?.title?.toLowerCase()?.includes(search.toLowerCase())
               : item
