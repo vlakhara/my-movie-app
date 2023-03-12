@@ -9,12 +9,14 @@ const MovieDetail = ({ open, handleClose, data }) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: { md: "60%" },
+    width: { md: "60%", xs: "90%" },
     bgcolor: "primary.main",
     color: "secondary.main",
     boxShadow: 24,
-    p: 4,
-    height: { md: "90vh", xs: "100vh" },
+    px: 4,
+    pt: { md: 2 },
+    pb: 2,
+    height: "90vh",
     overflow: "scroll",
     overflowX: "hidden",
   }
@@ -54,7 +56,7 @@ const MovieDetail = ({ open, handleClose, data }) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            height: "80vh",
+            height: { xs: "unset", md: "70vh" },
           }}
         >
           <Box>
