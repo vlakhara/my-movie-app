@@ -76,6 +76,7 @@ function Header({ getSearch }) {
                 </InputAdornment>
               ),
               sx: {
+                color: "secondary.main",
                 pl: 2,
                 pb: 1,
                 pr: 2,
