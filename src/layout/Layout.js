@@ -42,7 +42,7 @@ const Layout = () => {
           color="secondary"
           variant="text"
           shape="rounded"
-          size="large"
+          size="small"
           page={currentPage}
           onChange={(event, value) => {
             setCurrentPage(value)

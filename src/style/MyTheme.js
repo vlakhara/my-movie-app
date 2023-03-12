@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material"
 
 export const themeDark = createTheme({
   typography: {
-    fontFamily: "cursive",
+    fontFamily: "monospace",
   },
   palette: {
     primary: {
@@ -19,7 +19,7 @@ export const themeDark = createTheme({
 
 export const themeLight = createTheme({
   typography: {
-    fontFamily: "cursive",
+    fontFamily: "monospace",
     color: "#7286D3",
   },
   palette: {

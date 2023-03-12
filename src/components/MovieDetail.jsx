@@ -9,12 +9,14 @@ const MovieDetail = ({ open, handleClose, data }) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 800,
+    width: { md: "60%" },
     bgcolor: "primary.main",
     color: "secondary.main",
     boxShadow: 24,
-    borderRadius: 1,
     p: 4,
+    height: { md: "90vh", xs: "100vh" },
+    overflow: "scroll",
+    overflowX: "hidden",
   }
   useEffect(() => {
     getVideos(data?.id).then((res) => {
@@ -26,15 +28,22 @@ const MovieDetail = ({ open, handleClose, data }) => {
   })
   return (
     <Modal open={open} onClose={handleClose}>
-      <Grid container sx={style}>
+      <Grid
+        container
+        sx={style}
+        justifyContent="space-around"
+        alignItems="center"
+      >
         <Grid item md={6}>
           <img
             component="img"
             alt="Not found"
             src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
             style={{
-              height: 450,
+              height: "80vh",
               objectFit: "contain",
+              margin: "0rem auto",
+              width: "fit-content",
             }}
           />
         </Grid>
@@ -45,26 +54,41 @@ const MovieDetail = ({ open, handleClose, data }) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
+            height: "80vh",
           }}
         >
           <Box>
             <Typography variant="h6">{data?.title}</Typography>
             <Typography sx={{ mt: 2 }}>{data?.overview}</Typography>
           </Box>
-          <Button
-            onClick={() => {
-              window.open(`https://www.youtube.com/watch?v=${trailerLink}`)
-            }}
-            variant="contained"
-            color="secondary"
-            fullWidth={true}
-            sx={{
-              p: 1.5,
-              letterSpacing: "1.5px",
-            }}
-          >
-            Watch Trailer
-          </Button>
+          <Box display="flex" flexDirection="column" gap={1}>
+            <Button
+              onClick={() => {
+                window.open(`https://www.youtube.com/watch?v=${trailerLink}`)
+              }}
+              variant="contained"
+              color="secondary"
+              fullWidth={true}
+              sx={{
+                p: 1.5,
+                letterSpacing: "1.5px",
+              }}
+            >
+              Watch Trailer
+            </Button>
+            <Button
+              onClick={handleClose}
+              variant="contained"
+              color="secondary"
+              fullWidth={true}
+              sx={{
+                p: 1.5,
+                letterSpacing: "1.5px",
+              }}
+            >
+              Close
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </Modal>
